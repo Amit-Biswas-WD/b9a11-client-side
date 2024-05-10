@@ -1,7 +1,7 @@
 const HarmonyDifference = () => {
   return (
     <div className="mt-20 max-w-7xl mx-auto">
-      <h1 className="text-5xl font-bold text-center mb-14">
+      <h1 className="text-5xl font-serif font-bold text-center mb-14">
         THE HARMONY DIFFERENCE
       </h1>
       <img

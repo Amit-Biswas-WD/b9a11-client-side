@@ -8,11 +8,13 @@ const HarmonySuites = () => {
             className="rounded-lg  w-1/2"
           />
           <div className="w-1/2 mr-8">
-            <h1 className="text-5xl font-bold">WELCOME TO HARMONY SUITES</h1>
+            <h1 className="text-5xl font-serif font-bold">
+              WELCOME TO HARMONY SUITES
+            </h1>
             <h2 className="italic font-medium text-xl mt-4">
               Book Your Dream Getaway
             </h2>
-            <p className="py-6">
+            <p className="py-6 text-base font-serif">
               Nestled in the vibrant heart of Secaucus, New Jersey, Harmony
               Suites welcomes you to a world of refined indulgence. Immerse
               yourself in the pinnacle of comfort, just moments away from the
