@@ -1,17 +1,17 @@
 const HarmonySuites = () => {
   return (
     <div>
-      <div className="max-w-7xl mx-auto bg-white my-20">
+      <div className="max-w-7xl mx-auto bg-white md:my-20 my-12">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             src="https://i.ibb.co/0t2yjZb/Untitled-design-2-768x658-1.jpg"
-            className="rounded-lg  w-1/2"
+            className="rounded-lg  md:w-1/2"
           />
-          <div className="w-1/2 mr-8">
-            <h1 className="text-5xl font-serif font-bold">
+          <div className="md:w-1/2 mr-8">
+            <h1 className="md:text-5xl text-3xl font-serif font-bold">
               WELCOME TO HARMONY SUITES
             </h1>
-            <h2 className="italic font-medium text-xl mt-4">
+            <h2 className="italic font-medium md:text-xl text-lg mt-4">
               Book Your Dream Getaway
             </h2>
             <p className="py-6 text-base font-serif">

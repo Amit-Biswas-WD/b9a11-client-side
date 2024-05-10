@@ -11,7 +11,7 @@ import { MdBusinessCenter } from "react-icons/md";
 const Amenities = () => {
   return (
     <div className="max-w-3xl mx-auto font-serif">
-      <h1 className="text-5xl font-bold text-center">AMENITIES</h1>
+      <h1 className="md:text-5xl text-3xl font-bold text-center">AMENITIES</h1>
       <div className="">
         <div className="flex justify-between my-10">
           <div className="flex items-center gap-2">

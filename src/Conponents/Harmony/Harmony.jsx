@@ -3,12 +3,14 @@ const Harmony = () => {
     <div className="my-20 max-w-7xl mx-auto">
       <div className="md:flex gap-20 w-full">
         <img
-          className="w-1/2"
+          className="md:w-1/2"
           src="https://i.ibb.co/F5XVcs9/2-1024x791.jpg"
           alt=""
         />
-        <div className="w-1/2">
-          <h1 className="text-5xl font-serif font-bold">ACCOMMODATIONS</h1>
+        <div className="md:w-1/2 md:mt-32 mt-8">
+          <h1 className="md:text-5xl text-3xl font-serif font-bold mb-8">
+            ACCOMMO DATIONS
+          </h1>
           <p className="text-base font-serif">
             Indulge in the allure of spacious sophistication that only Harmony
             Suites can offer. Our suites redefine luxury, setting the stage for
@@ -22,8 +24,10 @@ const Harmony = () => {
         </div>
       </div>
       <div className="md:flex gap-20 w-full mt-20">
-        <div className="w-1/2 mt-36">
-          <h1 className="text-5xl font-serif font-bold">MEETINGS & EVENTS</h1>
+        <div className="md:w-1/2 md:mt-32 mb-8">
+          <h1 className="md:text-5xl text-3xl font-serif font-bold mb-8">
+            MEETINGS & EVENTS
+          </h1>
           <p className="text-base font-serif">
             Discover a haven for memorable events at our hotel, where modern
             luxury meets impeccable functionality. Our meticulously designed
@@ -37,7 +41,7 @@ const Harmony = () => {
           </p>
         </div>
         <img
-          className="w-1/2"
+          className="md:w-1/2"
           src="https://i.ibb.co/71mX6N2/3-1024x791.jpg"
           alt=""
         />
