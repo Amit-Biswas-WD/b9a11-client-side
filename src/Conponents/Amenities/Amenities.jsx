@@ -1,7 +1,6 @@
-import { FaWifi } from "react-icons/fa";
+// import { FaWifi } from "react-icons/fa";
 import { BsCupHot } from "react-icons/bs";
 import { FaSquareParking } from "react-icons/fa6";
-import { SiOpenaigym } from "react-icons/si";
 import { PiSwimmingPool } from "react-icons/pi";
 import { FaKey } from "react-icons/fa";
 import { SiGotomeeting } from "react-icons/si";
@@ -13,29 +12,25 @@ const Amenities = () => {
     <div className="max-w-3xl mx-auto font-serif">
       <h1 className="md:text-5xl text-3xl font-bold text-center">AMENITIES</h1>
       <div className="">
-        <div className="flex justify-between my-10">
-          <div className="flex items-center gap-2">
+        <div className="grid md:grid-cols-3 grid-cols-2 md:my-10 mt-8 mb-4">
+          {/* <div className="flex items-center gap-2">
             <FaWifi className="text-[#c18d58]" />
             <h2>Free Wifi</h2>
-          </div>
+          </div> */}
           <div className="flex items-center gap-2">
             <BsCupHot className="text-[#c18d58]" />
-            <h2>Complimentary Breakfast</h2>
+            <h2>ComplimentaryBreakfast</h2>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 ml-4">
             <FaSquareParking className="text-[#c18d58]" />
             <h2>Free Parking</h2>
-          </div>
-          <div className="flex items-center gap-2">
-            <SiOpenaigym className="text-[#c18d58]" />
-            <h2> Gym</h2>
           </div>
           <div className="flex items-center gap-2">
             <PiSwimmingPool className="text-[#c18d58]" />
             <h2>Swimming Pool</h2>
           </div>
         </div>
-        <div className="flex justify-between">
+        <div className="grid md:grid-cols-4 grid-cols-2 sm:mt-4">
           <div className="flex items-center gap-2">
             <FaKey className="text-[#c18d58]" />
             <h2>Key Card</h2>

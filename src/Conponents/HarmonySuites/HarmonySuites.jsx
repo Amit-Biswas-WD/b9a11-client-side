@@ -1,7 +1,7 @@
 const HarmonySuites = () => {
   return (
     <div>
-      <div className="max-w-7xl mx-auto bg-white md:my-20 my-12">
+      <div className="max-w-7xl mx-auto bg-white md:my-20 mb-14 mt-8">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             src="https://i.ibb.co/0t2yjZb/Untitled-design-2-768x658-1.jpg"
