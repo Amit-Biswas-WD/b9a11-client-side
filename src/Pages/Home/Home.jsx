@@ -1,5 +1,5 @@
 import Amenities from "../../Conponents/Amenities/Amenities";
-// import HarmonyDifference from "../../Conponents/HarmonyDifference/HarmonyDifference";
+import HarmonyDifference from "../../Conponents/HarmonyDifference/HarmonyDifference";
 import HarmonySuites from "../../Conponents/HarmonySuites/HarmonySuites";
 import Banner from "../Banner/Banner";
 
@@ -9,7 +9,7 @@ const Home = () => {
       <Banner></Banner>
       <HarmonySuites></HarmonySuites>
       <Amenities></Amenities>
-      {/* <HarmonyDifference></HarmonyDifference>  */}
+      <HarmonyDifference></HarmonyDifference>
     </div>
   );
 };
