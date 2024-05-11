@@ -1,14 +1,16 @@
+import { createContext, useEffect, useState } from "react";
+import auth from "../../Config/firebase.config";
+import PropTypes from "prop-types";
+
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  GoogleAuthProvider,
+  GithubAuthProvider,
 } from "firebase/auth";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
-import { createContext, useEffect, useState } from "react";
-import auth from "../../Config/firebase.config";
-import PropTypes from "prop-types";
 
 export const AuthContext = createContext(null);
 
