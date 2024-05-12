@@ -10,18 +10,16 @@ const Navbar = () => {
       <li className="md:mr-2 font-semibold">
         <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/mybooking">My Bookings</Link>
+      <li className="md:mr-2 font-semibold">
+        <Link to="/roompage">Rooms</Link>
       </li>
-      <li>
-        <Link to="/roompage">Rooms Page</Link>
-      </li>
-      <li>
-        <Link to="/blog">Blog</Link>
-      </li>
-      <li>
-        <Link to="/contact">Contact</Link>
-      </li>
+      {user && (
+        <>
+          <li className="md:mr-2 font-semibold">
+            <Link to="/mybooking">My Bookings</Link>
+          </li>
+        </>
+      )}
     </>
   );
 

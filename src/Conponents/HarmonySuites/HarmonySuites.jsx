@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HarmonySuites = () => {
   return (
     <div>
@@ -26,9 +28,9 @@ const HarmonySuites = () => {
               cherished memory in the making. Your journey to opulence begins at
               Harmony Suites. Book your escape today!
             </p>
-            <button className="btn btn-primary uppercase">
-              Explore Our Hotel
-            </button>
+            <Link to={`/roompage`}>
+              <button className="btn btn-primary uppercase">Book Now</button>
+            </Link>
           </div>
         </div>
       </div>
