@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import Room from "./Room";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const RoomPage = () => {
   const [roomPage, setRoomPage] = useState([]);
 
   useEffect(() => {
+    Aos.init();
     fetch("http://localhost:5000/services")
       .then((res) => res.json())
       .then((data) => setRoomPage(data));
   }, []);
   return (
-    <div className="max-w-7xl mx-auto">
+    <div
+      className="max-w-7xl mx-auto"
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+    >
       <details className="dropdown md:mb-4">
         <summary className="m-1 btn">open or close</summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-slate-200 rounded-box w-52">

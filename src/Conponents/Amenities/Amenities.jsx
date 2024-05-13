@@ -6,10 +6,20 @@ import { FaKey } from "react-icons/fa";
 import { SiGotomeeting } from "react-icons/si";
 import { MdOutlineLocalAtm } from "react-icons/md";
 import { MdBusinessCenter } from "react-icons/md";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Amenities = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
-    <div className="max-w-3xl mx-auto font-serif">
+    <div
+      className="max-w-3xl mx-auto font-serif"
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+    >
       <h1 className="md:text-5xl text-3xl font-bold text-center">AMENITIES</h1>
       <div className="">
         <div className="grid md:grid-cols-3 grid-cols-2 md:my-10 mt-8 mb-4">
