@@ -1,6 +1,17 @@
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const Footer = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
-    <div className="bg-base-200 mt-20">
+    <div
+      className="bg-base-200 mt-20"
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+    >
       <div className="max-w-7xl mx-auto footer p-10 text-base-content">
         <aside>
           <img

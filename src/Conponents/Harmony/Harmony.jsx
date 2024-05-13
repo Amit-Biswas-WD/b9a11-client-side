@@ -1,6 +1,17 @@
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const Harmony = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
-    <div className="my-20 max-w-7xl mx-auto">
+    <div
+      className="my-20 max-w-7xl mx-auto"
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+    >
       <div className="md:flex gap-20 w-full">
         <img
           className="md:w-1/2"
