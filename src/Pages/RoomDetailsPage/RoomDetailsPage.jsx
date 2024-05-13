@@ -3,11 +3,13 @@ import { useLoaderData } from "react-router-dom";
 // import { AuthContext } from "../../Conponents/Context/AuthContextProvider";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const RoomDetailsPage = () => {
   // const { user } = useContext(AuthContext);
   const rooms = useLoaderData();
+  const [book, setBook] = useState(rooms);
   const {
     _id,
     room_description,
@@ -29,20 +31,43 @@ const RoomDetailsPage = () => {
     };
     console.log(roomDetails);
 
-    fetch("http://localhost:5000/booking", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(roomDetails),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "confirm Button!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch("http://localhost:5000/booking", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(roomDetails),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.insertedId) {
+              // Assuming this indicates successful booking
+              Swal.fire({
+                title: "Success!",
+                text: "Your booking has been confirmed.",
+                icon: "success",
+              });
+              // Remove the booked room from the list
+              const remaining = book.filter((room) => room._id !== _id);
+              setBook(remaining);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    });
   };
 
   useEffect(() => {
@@ -79,7 +104,7 @@ const RoomDetailsPage = () => {
           <input
             className="btn btn-primary btn-block"
             type="submit"
-            value="Order Confirm"
+            value="Book Now"
           />
         </div>
       </div>
