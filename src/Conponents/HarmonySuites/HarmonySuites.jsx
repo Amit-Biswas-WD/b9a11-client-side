@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const HarmonySuites = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div>
       <div className="max-w-7xl mx-auto bg-white md:my-20 mb-14 mt-8">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div
+          className="hero-content flex-col lg:flex-row-reverse "
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+        >
           <img
             src="https://i.ibb.co/0t2yjZb/Untitled-design-2-768x658-1.jpg"
             className="rounded-lg  md:w-1/2"
