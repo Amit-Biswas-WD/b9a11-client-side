@@ -34,7 +34,11 @@ const Harmony = () => {
           </p>
         </div>
       </div>
-      <div className="md:flex gap-20 w-full mt-20">
+      <div
+        className="md:flex gap-20 w-full mt-20"
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
+      >
         <div className="md:w-1/2 md:mt-32 mb-8">
           <h1 className="md:text-5xl text-3xl font-serif font-bold mb-8">
             MEETINGS & EVENTS

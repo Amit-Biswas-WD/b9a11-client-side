@@ -13,12 +13,12 @@ const RoomPage = () => {
       .then((data) => setRoomPage(data));
   }, []);
   return (
-    <div
-      className="max-w-7xl mx-auto"
-      data-aos="fade-up"
-      data-aos-anchor-placement="center-bottom"
-    >
-      <details className="dropdown md:mb-4">
+    <div className="max-w-7xl mx-auto">
+      <details
+        className="dropdown md:mb-4"
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
+      >
         <summary className="m-1 btn">open or close</summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-slate-200 rounded-box w-52">
           <li>

@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Conponents/Context/AuthContextProvider";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const RoomDetailsPage = () => {
   const rooms = useLoaderData();
@@ -15,6 +18,10 @@ const RoomDetailsPage = () => {
     special_offers,
   } = rooms;
 
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   fetch("http://localhost:5000/services", {
     method: "POST",
     headers: {
@@ -28,7 +35,11 @@ const RoomDetailsPage = () => {
     });
 
   return (
-    <div className="max-w-7xl mx-auto flex gap-10">
+    <div
+      className="max-w-7xl mx-auto flex gap-10"
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+    >
       <div className="w-1/2">
         <img className="w-full" src={room_images} alt="" />
       </div>
