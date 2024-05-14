@@ -16,6 +16,8 @@ const HarmonyDifference = () => {
         THE HARMONY DIFFERENCE
       </h1>
       <img
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
         src="https://i.ibb.co/0GJ93Dr/image-2024-01-18-T10-32-59-007-Z.jpg"
         alt=""
       />

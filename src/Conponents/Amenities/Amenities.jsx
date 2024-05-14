@@ -21,7 +21,11 @@ const Amenities = () => {
       data-aos-anchor-placement="center-bottom"
     >
       <h1 className="md:text-5xl text-3xl font-bold text-center">AMENITIES</h1>
-      <div className="">
+      <div
+        className=""
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
+      >
         <div className="grid md:grid-cols-3 grid-cols-2 md:my-10 mt-8 mb-4">
           {/* <div className="flex items-center gap-2">
             <FaWifi className="text-[#c18d58]" />

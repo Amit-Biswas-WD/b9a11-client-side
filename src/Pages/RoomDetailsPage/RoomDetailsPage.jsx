@@ -22,12 +22,18 @@ const RoomDetailsPage = () => {
 
   const handleRoomDetails = (event) => {
     event.preventDefault();
+    const form = event.target;
+    const date = form.date.value;
+    // const email = form.email.value;
 
     const roomDetails = {
+      // email,
+      date,
       services_id: _id,
       price: price_per_night,
       size: room_size,
       img: room_images,
+      offer: special_offers,
     };
     console.log(roomDetails);
 
@@ -52,13 +58,11 @@ const RoomDetailsPage = () => {
           .then((data) => {
             console.log(data);
             if (data.insertedId) {
-              // Assuming this indicates successful booking
               Swal.fire({
                 title: "Success!",
                 text: "Your booking has been confirmed.",
                 icon: "success",
               });
-              // Remove the booked room from the list
               const remaining = book.filter((room) => room._id !== _id);
               setBook(remaining);
             }
@@ -100,12 +104,26 @@ const RoomDetailsPage = () => {
             Room Description: {room_description}
           </p>
         </div>
-        <div className="form-control mt-6">
+        <div className="flex justify-between mt-6">
           <input
-            className="btn btn-primary btn-block"
-            type="submit"
-            value="Book Now"
+            type="date"
+            name="date"
+            className="input input-bordered"
+            required
           />
+          {/* <input
+            type="email"
+            name="email"
+            placeholder="type your email"
+            id=""
+          /> */}
+          <div className="form-control">
+            <input
+              className="btn btn-primary btn-block"
+              type="submit"
+              value="Book Now"
+            />
+          </div>
         </div>
       </div>
     </form>
