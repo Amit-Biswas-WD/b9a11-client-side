@@ -10,6 +10,8 @@ const RoomDetailsPage = () => {
   // const { user } = useContext(AuthContext);
   const rooms = useLoaderData();
   const [book, setBook] = useState(rooms);
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
+
   const {
     _id,
     room_description,
@@ -24,6 +26,8 @@ const RoomDetailsPage = () => {
     event.preventDefault();
     const form = event.target;
     const date = form.date.value;
+    setIsButtonClicked(true);
+
     // const email = form.email.value;
 
     const roomDetails = {
@@ -117,13 +121,16 @@ const RoomDetailsPage = () => {
             placeholder="type your email"
             id=""
           /> */}
-          <div className="form-control">
-            <input
-              className="btn btn-primary btn-block"
-              type="submit"
-              value="Book Now"
-            />
-          </div>
+          {
+            <div className="form-control">
+              <input
+                className="btn btn-primary btn-block"
+                type="submit"
+                value="Book Now"
+                disabled={isButtonClicked}
+              />
+            </div>
+          }
         </div>
       </div>
     </form>
