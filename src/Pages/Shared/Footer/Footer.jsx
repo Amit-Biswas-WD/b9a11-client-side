@@ -8,7 +8,7 @@ const Footer = () => {
   }, []);
   return (
     <div
-      className="bg-base-200 mt-20"
+      className="bg-base-200"
       data-aos="fade-up"
       data-aos-anchor-placement="center-bottom"
     >

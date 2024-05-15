@@ -1,22 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Conponents/Context/AuthContextProvider";
-import BookingRow from "./BookingRow";
+import { useState } from "react";
 import Swal from "sweetalert2";
-// import useAxiosSecure from "../../Conponents/Context/useAxiosSecure";
+import DateDetails from "./DateDetails";
 
-const MyBooking = () => {
-  const { user } = useContext(AuthContext);
-  const [bookings, setBookings] = useState([]);
-  // const axiosSecure = useAxiosSecure();
-
-  const url = `http://localhost:5000/booking?=${user?.img}`;
-  // const url = `/booking?=${user?.img}`;
-  useEffect(() => {
-    // axiosSecure;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setBookings(data));
-  }, [url]);
+const DateUpdate = () => {
+  const [booking, setBooking] = useState([]);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -37,10 +24,10 @@ const MyBooking = () => {
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
-              const remaining = bookings.filter(
+              const remaining = booking.filter(
                 (bookingItem) => bookingItem._id !== id
               );
-              setBookings(remaining);
+              setBooking(remaining);
             }
           })
           .catch((error) => {
@@ -54,28 +41,24 @@ const MyBooking = () => {
     <div className="max-w-7xl mx-auto">
       <div className="overflow-x-auto">
         <table className="table">
-          <h2 className="text-3xl">This is {bookings.length}</h2>
           {/* head */}
           <thead>
             <tr className="text-xl">
-              <th>
-                <h2>Delete</h2>
-              </th>
               <th>Image</th>
               <th>Offer</th>
               <th>Price</th>
               <th>Size</th>
               <th>Date</th>
-              <th>Edit</th>
+              <th>Update</th>
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking) => (
-              <BookingRow
+            {booking.map((booking) => (
+              <DateDetails
                 key={booking._id}
                 booking={booking}
                 handleDelete={handleDelete}
-              ></BookingRow>
+              ></DateDetails>
             ))}
           </tbody>
         </table>
@@ -84,4 +67,4 @@ const MyBooking = () => {
   );
 };
 
-export default MyBooking;
+export default DateUpdate;

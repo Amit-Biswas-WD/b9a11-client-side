@@ -76,7 +76,7 @@ const AuthContextProvider = ({ children }) => {
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [user]);
 
   const userInfo = {
     user,

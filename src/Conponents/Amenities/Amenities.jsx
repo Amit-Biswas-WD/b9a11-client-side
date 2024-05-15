@@ -27,10 +27,6 @@ const Amenities = () => {
         data-aos-anchor-placement="center-bottom"
       >
         <div className="grid md:grid-cols-3 grid-cols-2 md:my-10 mt-8 mb-4">
-          {/* <div className="flex items-center gap-2">
-            <FaWifi className="text-[#c18d58]" />
-            <h2>Free Wifi</h2>
-          </div> */}
           <div className="flex items-center gap-2">
             <BsCupHot className="text-[#c18d58]" />
             <h2>ComplimentaryBreakfast</h2>

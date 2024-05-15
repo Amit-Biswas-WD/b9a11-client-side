@@ -8,6 +8,10 @@ import LoginPage from "../Pages/LoginPage/LoginPage";
 import RegisterPage from "../Pages/RegisterPage/RegisterPage";
 import ErrorPage from "./../Pages/ErrorPage/ErrorPage";
 import RoomDetailsPage from "../Pages/RoomDetailsPage/RoomDetailsPage";
+import DateUpdate from "../Pages/DateUpdate/DateUpdate";
+import DateDetails from "../Pages/DateUpdate/DateDetails";
+import PrivateRoute from "./PrivateRoute";
+// import DateDetails from "../Pages/DateUpdate/DateDetails";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +25,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/mybooking",
-        element: <MyBooking></MyBooking>,
+        element: (
+          <PrivateRoute>
+            <MyBooking></MyBooking>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/roompage",
@@ -32,6 +40,18 @@ const router = createBrowserRouter([
         element: <RoomDetailsPage></RoomDetailsPage>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/services/${params.id}`),
+      },
+      {
+        path: "/dateupdate/:_id",
+        element: <DateUpdate></DateUpdate>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/booking/${params._id}`),
+      },
+      {
+        path: "/datedetails/:id",
+        element: <DateDetails></DateDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/booking/${params.id}`),
       },
       {
         path: "/registerpage",

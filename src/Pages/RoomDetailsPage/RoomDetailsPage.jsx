@@ -1,13 +1,10 @@
-// import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-// import { AuthContext } from "../../Conponents/Context/AuthContextProvider";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 const RoomDetailsPage = () => {
-  // const { user } = useContext(AuthContext);
   const rooms = useLoaderData();
   const [book, setBook] = useState(rooms);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
@@ -26,13 +23,12 @@ const RoomDetailsPage = () => {
     event.preventDefault();
     const form = event.target;
     const date = form.date.value;
+    const rating_4 = form.rating_4.value;
     setIsButtonClicked(true);
 
-    // const email = form.email.value;
-
     const roomDetails = {
-      // email,
       date,
+      rating_4,
       services_id: _id,
       price: price_per_night,
       size: room_size,
@@ -85,14 +81,14 @@ const RoomDetailsPage = () => {
   return (
     <form
       onSubmit={handleRoomDetails}
-      className="max-w-7xl mx-auto flex gap-10"
+      className="max-w-7xl mx-auto md:flex gap-10 mb-6"
       data-aos="fade-up"
       data-aos-anchor-placement="center-bottom"
     >
-      <div className="w-1/2">
+      <div className="md:w-1/2">
         <img className="w-full" src={room_images} alt="" />
       </div>
-      <div className="w-1/2 flex-wrap h-full">
+      <div className="md:w-1/2 flex-wrap h-full">
         <div>
           <p className="text-lg font-normal my-2">
             Price Par Night: {price_per_night}
@@ -115,22 +111,42 @@ const RoomDetailsPage = () => {
             className="input input-bordered"
             required
           />
-          {/* <input
-            type="email"
-            name="email"
-            placeholder="type your email"
-            id=""
-          /> */}
-          {
-            <div className="form-control">
-              <input
-                className="btn btn-primary btn-block"
-                type="submit"
-                value="Book Now"
-                disabled={isButtonClicked}
-              />
-            </div>
-          }
+          <div className="rating">
+            <input
+              type="radio"
+              name="rating_4"
+              className="mask mask-star-2 bg-green-500"
+            />
+            <input
+              type="radio"
+              name="rating_4"
+              className="mask mask-star-2 bg-green-500"
+              checked
+            />
+            <input
+              type="radio"
+              name="rating_4"
+              className="mask mask-star-2 bg-green-500"
+            />
+            <input
+              type="radio"
+              name="rating_4"
+              className="mask mask-star-2 bg-green-500"
+            />
+            <input
+              type="radio"
+              name="rating_4"
+              className="mask mask-star-2 bg-green-500"
+            />
+          </div>
+        </div>
+        <div className="form-control mt-6 max-w-36">
+          <input
+            className="btn btn-primary btn-block"
+            type="submit"
+            value="Book Now"
+            disabled={isButtonClicked}
+          />
         </div>
       </div>
     </form>

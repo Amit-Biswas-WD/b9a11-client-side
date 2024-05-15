@@ -1,5 +1,8 @@
-const BookingRow = ({ booking, handleDelete, handleMyBookingUpdate }) => {
-  const { _id, date, price, size, img, offer, status } = booking;
+import { CiEdit } from "react-icons/ci";
+import { Link } from "react-router-dom";
+
+const BookingRow = ({ booking, handleDelete }) => {
+  const { _id, date, price, size, img, offer } = booking;
 
   return (
     <tr>
@@ -25,32 +28,28 @@ const BookingRow = ({ booking, handleDelete, handleMyBookingUpdate }) => {
         </button>
       </th>
       <td>
-        <div className="flex items-center gap-3">
-          <div className="avatar">
-            <div className="rounded w-24 h-24">
-              <img src={img} alt="Avatar Tailwind CSS Component" />
-            </div>
-          </div>
-          <div>
-            <div className="font-bold">{offer}</div>
+        {/* <div className="flex items-center gap-3"> */}
+        <div className="avatar">
+          <div className="rounded w-24 h-24">
+            <img src={img} alt="Avatar Tailwind CSS Component" />
           </div>
         </div>
+        {/* <div>
+          <div className="font-bold">{offer}</div>
+        </div> */}
+        {/* </div> */}
       </td>
+      <td>{offer}</td>
       <td>{price}</td>
       <td>{size}</td>
       <td>{date}</td>
 
       <th>
-        {status === "confirm" ? (
-          <span className="text-lg text-green-500">Confirmed</span>
-        ) : (
-          <button
-            onClick={() => handleMyBookingUpdate(_id)}
-            className="btn btn-ghost btn-xs"
-          >
-            details
-          </button>
-        )}
+        <button className="btn">
+          <Link to={`/dateupdate/${_id}`}>
+            <CiEdit className="w-8 h-8" />
+          </Link>
+        </button>
       </th>
     </tr>
   );
