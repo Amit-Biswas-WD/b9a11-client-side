@@ -57,17 +57,25 @@ const AuthContextProvider = ({ children }) => {
       setLoading(false);
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", loggedUser, {
-            withCredentials: true,
-          })
-          .then((res) => {
-            console.log("token response", res.data);
+          .post(
+            "https://assignment-11-server-side-steel-pi.vercel.app/jwt",
+            loggedUser,
+            {
+              withCredentials: true,
+            }
+          )
+          .then(() => {
+            // console.log("token response", res.data);
           });
       } else {
         axios
-          .post("http://localhost:5000/logout", loggedUser, {
-            withCredentials: true,
-          })
+          .post(
+            "https://assignment-11-server-side-steel-pi.vercel.app/logout",
+            loggedUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log(res.data);
           });

@@ -35,7 +35,7 @@ const RoomDetailsPage = () => {
       img: room_images,
       offer: special_offers,
     };
-    console.log(roomDetails);
+    // console.log(roomDetails);
 
     Swal.fire({
       title: "Are you sure?",
@@ -47,7 +47,7 @@ const RoomDetailsPage = () => {
       confirmButtonText: "confirm Button!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("http://localhost:5000/booking", {
+        fetch("https://assignment-11-server-side-steel-pi.vercel.app/booking", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -56,7 +56,7 @@ const RoomDetailsPage = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.insertedId) {
               Swal.fire({
                 title: "Success!",

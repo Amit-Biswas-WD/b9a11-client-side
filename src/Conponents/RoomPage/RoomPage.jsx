@@ -2,38 +2,52 @@ import { useEffect, useState } from "react";
 import Room from "./Room";
 import Aos from "aos";
 import "aos/dist/aos.css";
+// import { useLoaderData } from "react-router-dom";
 
 const RoomPage = () => {
   const [roomPage, setRoomPage] = useState([]);
-
-  // const producetCard = () => {
-  //   const products = {
-  //     price: ,
-  //     price: ,
-  //   }
-  // }
+  const [sortedRooms, setSortedRooms] = useState([]);
+  // const loaded = useLoaderData([]);
 
   useEffect(() => {
     Aos.init();
-    fetch("http://localhost:5000/services")
+    fetch("https://assignment-11-server-side-steel-pi.vercel.app/services")
       .then((res) => res.json())
-      .then((data) => setRoomPage(data));
+      .then((data) => {
+        setRoomPage(data);
+        setSortedRooms(data); // Initially set sortedRooms to the fetched data
+      });
   }, []);
+
+  const sortHighToLow = () => {
+    const sorted = [...roomPage].sort(
+      (a, b) => b.price_per_night - a.price_per_night
+    );
+    setSortedRooms(sorted);
+  };
+
+  const sortLowToHigh = () => {
+    const sorted = [...roomPage].sort(
+      (a, b) => a.price_per_night - b.price_per_night
+    );
+    setSortedRooms(sorted);
+  };
+
   return (
     <div className="max-w-7xl mx-auto">
       <details className="dropdown">
-        <summary className="m-1 btn">open or close</summary>
+        <summary className="m-1 btn">Sort by Price</summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
           <li>
-            <a>High Price</a>
+            <button onClick={sortHighToLow}>High Price</button>
           </li>
           <li>
-            <a>low Price</a>
+            <button onClick={sortLowToHigh}>Low Price</button>
           </li>
         </ul>
       </details>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
-        {roomPage.map((room) => (
+        {sortedRooms.map((room) => (
           <Room key={room._id} room={room}></Room>
         ))}
       </div>

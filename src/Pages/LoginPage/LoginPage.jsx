@@ -16,8 +16,8 @@ const LoginPage = () => {
     console.log(email, password);
 
     signInUser(email, password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
+        // console.log(result.user);
         event.target.reset();
         navigate("/");
       })

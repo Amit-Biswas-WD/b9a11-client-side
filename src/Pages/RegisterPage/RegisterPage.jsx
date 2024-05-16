@@ -19,8 +19,8 @@ const RegisterPage = () => {
     console.log(name, email, photo, password, confirmPassword);
 
     createUser(email, password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
+        // console.log(result.user);
         event.target.reset();
         navigate("/");
       })

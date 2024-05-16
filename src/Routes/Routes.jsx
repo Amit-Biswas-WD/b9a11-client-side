@@ -39,19 +39,25 @@ const router = createBrowserRouter([
         path: "/roomdetails/:id",
         element: <RoomDetailsPage></RoomDetailsPage>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://assignment-11-server-side-steel-pi.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: "/dateupdate/:_id",
         element: <DateUpdate></DateUpdate>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/booking/${params._id}`),
+          fetch(
+            `https://assignment-11-server-side-steel-pi.vercel.app/booking/${params._id}`
+          ),
       },
       {
         path: "/datedetails/:id",
         element: <DateDetails></DateDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/booking/${params.id}`),
+          fetch(
+            `https://assignment-11-server-side-steel-pi.vercel.app/booking/${params.id}`
+          ),
       },
       {
         path: "/registerpage",

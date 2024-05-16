@@ -17,7 +17,7 @@ const Room = ({ room }) => {
       <Link to={`/roomdetails/${_id}`}>
         <img className="w-full" src={room_images} alt="" />
       </Link>
-      <h2 className="text-2xl">Price Per Night: {price_per_night}</h2>
+      <h2 className="text-xl my-2">Price Per Night: {price_per_night}</h2>
     </div>
   );
 };

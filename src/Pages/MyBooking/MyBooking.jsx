@@ -9,7 +9,7 @@ const MyBooking = () => {
   const [bookings, setBookings] = useState([]);
   // const axiosSecure = useAxiosSecure();
 
-  const url = `http://localhost:5000/booking?=${user?.img}`;
+  const url = `https://assignment-11-server-side-steel-pi.vercel.app/booking?=${user?.img}`;
   // const url = `/booking?=${user?.img}`;
   useEffect(() => {
     // axiosSecure;
@@ -29,12 +29,15 @@ const MyBooking = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/booking/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-11-server-side-steel-pi.vercel.app/booking/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
               const remaining = bookings.filter(
