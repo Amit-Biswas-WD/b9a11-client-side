@@ -58,7 +58,7 @@ const AuthContextProvider = ({ children }) => {
       if (currentUser?.email) {
         const userEmail = { email: currentUser?.email };
         axios
-          .post("http://localhost:5000/jwt", userEmail, {
+          .post("https://b9a11-server-side-amit44777.vercel.app/jwt", userEmail, {
             withCredentials: true,
           })
           .then((res) => {
@@ -68,7 +68,7 @@ const AuthContextProvider = ({ children }) => {
       } else {
         axios
           .post(
-            "http://localhost:5000/logout",
+            "https://b9a11-server-side-amit44777.vercel.app/logout",
             {},
             {
               withCredentials: true,

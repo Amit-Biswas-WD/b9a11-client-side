@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         element: <RoomDetailsPage></RoomDetailsPage>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/services/${params.id}`
+            `https://b9a11-server-side-amit44777.vercel.app/services/${params.id}`
           ),
       },
       {
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element: <Update></Update>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/booking/${params.id}`
+            `https://b9a11-server-side-amit44777.vercel.app/booking/${params.id}`
           ),
       },
       {
