@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+import image from "../../../public/image/image1.jpg"
 
 const HarmonySuites = () => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
+
   return (
     <div>
       <div className="max-w-7xl mx-auto bg-white md:my-20 mb-14 mt-8">
@@ -16,7 +12,7 @@ const HarmonySuites = () => {
           data-aos-anchor-placement="center-bottom"
         >
           <img
-            src="https://i.ibb.co/0t2yjZb/Untitled-design-2-768x658-1.jpg"
+            src={image}
             className="rounded-lg  md:w-1/2"
           />
           <div className="md:w-1/2 mr-8">
@@ -38,7 +34,7 @@ const HarmonySuites = () => {
               cherished memory in the making. Your journey to opulence begins at
               Harmony Suites. Book your escape today!
             </p>
-            <Link to={`/roompage`}>
+            <Link to={`/room`}>
               <button className="btn btn-primary uppercase">Book Now</button>
             </Link>
           </div>

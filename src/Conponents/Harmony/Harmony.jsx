@@ -1,11 +1,8 @@
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+import image from "../../../public/image/image3.jpg"
+import image2 from "../../../public/image/image4.jpg"
 
 const Harmony = () => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
+
   return (
     <div
       className="my-20 max-w-7xl mx-auto"
@@ -15,7 +12,7 @@ const Harmony = () => {
       <div className="md:flex gap-20 w-full">
         <img
           className="md:w-1/2"
-          src="https://i.ibb.co/F5XVcs9/2-1024x791.jpg"
+          src={image}
           alt=""
         />
         <div className="md:w-1/2 md:mt-32 mt-8">
@@ -57,7 +54,7 @@ const Harmony = () => {
         </div>
         <img
           className="md:w-1/2"
-          src="https://i.ibb.co/71mX6N2/3-1024x791.jpg"
+          src={image2}
           alt=""
         />
       </div>

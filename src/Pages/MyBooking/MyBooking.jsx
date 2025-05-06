@@ -2,21 +2,24 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Conponents/Context/AuthContextProvider";
 import BookingRow from "./BookingRow";
 import Swal from "sweetalert2";
-// import useAxiosSecure from "../../Conponents/Context/useAxiosSecure";
 
 const MyBooking = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
-  // const axiosSecure = useAxiosSecure();
 
-  const url = `https://assignment-11-server-side-steel-pi.vercel.app/booking?=${user?.img}`;
-  // const url = `/booking?=${user?.img}`;
+  const url = `http://localhost:5000/booking?email=${user?.email}`;
+
   useEffect(() => {
-    // axiosSecure;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setBookings(data));
-  }, [url]);
+    if (user?.email) {
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => setBookings(data));
+    }
+  }, [url, user?.email]);
+  console.log(user?.email);
+
+  console.log("gfagdgag",user);
+  console.log(bookings);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -30,7 +33,7 @@ const MyBooking = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://assignment-11-server-side-steel-pi.vercel.app/booking/${id}`,
+          `http://localhost:5000/booking/${id}`,
           {
             method: "DELETE",
           }
@@ -54,22 +57,21 @@ const MyBooking = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto my-4 mt-20">
       <div className="overflow-x-auto">
         <table className="table">
-          <h2 className="text-3xl">This is {bookings.length}</h2>
           {/* head */}
           <thead>
             <tr className="text-xl">
-              <th>
-                <h2>Delete</h2>
-              </th>
               <th>Image</th>
               <th>Offer</th>
               <th>Price</th>
               <th>Size</th>
               <th>Date</th>
               <th>Edit</th>
+              <th>
+                <h2>Cancel</h2>
+              </th>
             </tr>
           </thead>
           <tbody>

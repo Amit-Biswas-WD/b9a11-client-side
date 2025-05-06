@@ -1,11 +1,5 @@
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
-
 const Banner = () => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
+
   return (
     <div
       className="flex items-center justify-center h-screen mb-12 overflow-hidden"

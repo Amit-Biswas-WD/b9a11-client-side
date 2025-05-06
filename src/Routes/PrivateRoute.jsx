@@ -5,7 +5,6 @@ import { NavLink, useLocation } from "react-router-dom";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
-  // console.log(location.pathname);
 
   if (loading) {
     return (
@@ -20,7 +19,7 @@ const PrivateRoute = ({ children }) => {
   }
 
   return (
-    <NavLink state={location.pathname} to="loginpage" replace={true}></NavLink>
+    <NavLink state={location.pathname} to="/login" replace/>
   );
 };
 

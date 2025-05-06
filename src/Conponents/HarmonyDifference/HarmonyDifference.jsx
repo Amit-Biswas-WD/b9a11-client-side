@@ -1,11 +1,7 @@
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+import image from "../../../public/image/image2.jpg"
 
 const HarmonyDifference = () => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
+
   return (
     <div
       className="md:mt-20 mt-14 max-w-7xl mx-auto"
@@ -18,7 +14,7 @@ const HarmonyDifference = () => {
       <img
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
-        src="https://i.ibb.co/0GJ93Dr/image-2024-01-18-T10-32-59-007-Z.jpg"
+        src={image}
         alt=""
       />
     </div>

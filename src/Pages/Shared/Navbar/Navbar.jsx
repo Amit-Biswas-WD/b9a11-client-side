@@ -1,27 +1,44 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../../Conponents/Context/AuthContextProvider";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { IoCloseSharp } from "react-icons/io5";
+import { GiHamburgerMenu } from "react-icons/gi";
+import useAuth from "../../../hooks/useAuth";
+import image from "../../../../public/Harmony/Harmony.png";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const [open, setOpen] = useState(false);
+  const { user, logOut } = useAuth();
+  const [showTooltip, setShowTooltip] = useState(false);
 
-  const navItem = (
-    <>
-      <li className="md:mr-2 font-semibold">
-        <Link to="/">Home</Link>
-      </li>
-      <li className="md:mr-2 font-semibold">
-        <Link to="/roompage">Rooms</Link>
-      </li>
-      {user && (
-        <>
-          <li className="md:mr-2 font-semibold">
-            <Link to="/mybooking">My Bookings</Link>
-          </li>
-        </>
-      )}
-    </>
-  );
+  const items = [
+    <NavLink
+      className={({ isActive }) => (isActive ? "text-green-500" : "text-black")}
+      key="/"
+      to="/"
+    >
+      Home
+    </NavLink>,
+
+    <NavLink
+      className={({ isActive }) => (isActive ? "text-green-500" : "text-black")}
+      key="/room"
+      to="/room"
+    >
+      Rooms
+    </NavLink>,
+
+    user && (
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "text-green-500" : "text-black"
+        }
+        key="/myBooking"
+        to="/myBooking"
+      >
+        My Bookings
+      </NavLink>
+    ),
+  ];
 
   const handleLogout = () => {
     logOut()
@@ -30,64 +47,103 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 font-serif max-w-7xl mx-auto">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+    <div className="">
+      <div className="container mx-auto">
+        {/* Desktop Navbar */}
+        <div className="hidden px-8 bg-gray-200 fixed top-0 left-0 w-full z-50 lg:flex justify-between items-center gap-14 text-black font-semibold">
+          <div className="flex gap-14">
+            <Link to={`/`}>
+              <img className="w-20" src={image} alt="" />
+            </Link>
+            <ul className="flex items-center gap-8 text-lg my-4">
+              {items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            {navItem}
-          </ul>
+          <div className="flex items-center gap-4">
+            {user?.email ? (
+              <div className="flex items-center space-x-3">
+                {/* Profile Image with Tooltip */}
+                <div
+                  className="relative cursor-pointer"
+                  onMouseEnter={() => setShowTooltip(true)}
+                  onMouseLeave={() => setShowTooltip(false)}
+                >
+                  <img
+                    src={
+                      user.photoURL ||
+                      "https://i.ibb.co.com/5QBXv09/Screenshot-4.png"
+                    }
+                    alt="User Profile"
+                    className="w-14 h-14 rounded-full border-2 border-white"
+                  />
+
+                  {/* Tooltip (Name & Email) */}
+                  {showTooltip && (
+                    <div className="fixed top-18 left-280 transform -translate-x-1/2 bg-gray-700 text-white text-sm px-3 py-2 rounded shadow-lg z-50">
+                      <p>{user.displayName || "No Name"}</p>
+                      <p>{user.email}</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Log Out Button */}
+                <button
+                  onClick={handleLogout}
+                  className="border-2 border-red-500 text-red-500 px-4 py-2 rounded"
+                >
+                  Log Out
+                </button>
+              </div>
+            ) : (
+              <div>
+                <NavLink
+                  to="/login"
+                  className="border-2 border-green-500 text-green-500  px-4 py-2 rounded"
+                >
+                  Sign In
+                </NavLink>
+              </div>
+            )}
+          </div>
         </div>
-        <div className="">
-          <img
-            className="w-20 hover:bg-white bg-white border-none"
-            src="https://i.ibb.co/XFXJsW1/Harmony-Suites-Final-Logo-Gold-2-150x150.png"
-            alt=""
-          />
-        </div>
-        <div className="navbar-center hidden lg:flex ml-20">
-          <ul className="menu menu-horizontal px-1">{navItem}</ul>
-        </div>
-      </div>
-      <div className="navbar-end">
-        {user ? (
-          <>
-            <div className="w-10 mr-4">
-              <img
-                data-toggle="tooltip"
-                data-placement="top"
-                title={user.displayName || "user name not found"}
-                className="rounded-full"
-                src={user?.photoURL || "https://i.ibb.co/fYM31Hv/download.png"}
-              />
-            </div>
-            <a onClick={handleLogout} className="btn btn-sm">
-              Sign Out
-            </a>
-          </>
-        ) : (
-          <Link to="/loginpage">
-            <button className="btn btn-sm">Login</button>
+        {/* Mobile Navbar */}
+        <div className="lg:hidden flex relative text-[#499DEC]">
+          <Link to={`/`}>
+            <img
+              className="fixed z-50 w-28 h-28 mb-2"
+              src={image}
+              alt=""
+            />
           </Link>
-        )}
+          <div className="relative justify-end">
+            {/* Menu Button */}
+            <div
+              className="cursor-pointer text-amber-600 text-4xl font-semibold fixed top-12 right-4 z-50"
+              onClick={() => setOpen(!open)}
+            >
+              {open ? (
+                <IoCloseSharp className="w-10 h-10" />
+              ) : (
+                <GiHamburgerMenu className="w-10 h-10" />
+              )}
+            </div>
+
+            {/* Sidebar */}
+            <ul
+              className={`bg-[#499DEC] text-white text-xl font-semibold pl-8 fixed top-0 h-full w-[30%] py-4 transition-all duration-700 ${
+                open ? "right-0" : "-right-[520px]"
+              } z-40`}
+            >
+              {items.map((item, index) => (
+                <li key={index} className="hover:text-gray-200 py-2">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

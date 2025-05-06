@@ -49,35 +49,34 @@ const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      const userEmail = currentUser?.email || user?.email;
-      const loggedUser = { email: userEmail };
+      // const userEmail = currentUser?.email || user?.email;
+      // const loggedUser = { email: userEmail };
 
-      setUser(currentUser);
       console.log("Current value of the user", currentUser);
-      setLoading(false);
-      if (currentUser) {
+      setUser(currentUser);
+
+      if (currentUser?.email) {
+        const userEmail = { email: currentUser?.email };
         axios
-          .post(
-            "https://assignment-11-server-side-steel-pi.vercel.app/jwt",
-            loggedUser,
-            {
-              withCredentials: true,
-            }
-          )
-          .then(() => {
-            // console.log("token response", res.data);
+          .post("http://localhost:5000/jwt", userEmail, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("Login token", res.data);
+            setLoading(false);
           });
       } else {
         axios
           .post(
-            "https://assignment-11-server-side-steel-pi.vercel.app/logout",
-            loggedUser,
+            "http://localhost:5000/logout",
+            {},
             {
               withCredentials: true,
             }
           )
           .then((res) => {
-            console.log(res.data);
+            console.log("Logout", res.data);
+            setLoading(false);
           });
       }
     });

@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Social from "../Social/Social";
 import { AuthContext } from "../../Conponents/Context/AuthContextProvider";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const { signInUser } = useContext(AuthContext);
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleLoginPage = (event) => {
@@ -16,13 +18,15 @@ const LoginPage = () => {
     console.log(email, password);
 
     signInUser(email, password)
-      .then(() => {
-        // console.log(result.user);
-        event.target.reset();
-        navigate("/");
-      })
-      .catch((error) => console.log(error));
+    .then(() => {
+      // console.log(res);
+      event.target.reset();
+      navigate(location?.state ? location?.state : "/");
+      toast("Login Successfully!");
+    })
+    .catch((error) => console.log(error));
   };
+
   return (
     <div className="hero min-h-screen bg-base-200 max-w-7xl mx-auto">
       <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -58,7 +62,7 @@ const LoginPage = () => {
         <Social></Social>
         <p className="text-center">
           New here? please
-          <Link to="/registerpage">
+          <Link to="/register">
             <button className="btn btn-link">Register</button>
           </Link>
         </p>

@@ -1,12 +1,13 @@
-import { useLoaderData } from "react-router-dom";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
-import Swal from "sweetalert2";
+import { Link, useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const RoomDetailsPage = () => {
-  const rooms = useLoaderData();
-  const [book, setBook] = useState(rooms);
+  const { user } = useAuth();
+  const email = user?.email;
+  const rooms = useLoaderData([]);
+  console.log(rooms);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   const {
@@ -29,59 +30,40 @@ const RoomDetailsPage = () => {
     const roomDetails = {
       date,
       rating_4,
+      email: email,
       services_id: _id,
       price: price_per_night,
       size: room_size,
       img: room_images,
       offer: special_offers,
     };
-    // console.log(roomDetails);
+    console.log(roomDetails);
 
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "confirm Button!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch("https://assignment-11-server-side-steel-pi.vercel.app/booking", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(roomDetails),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            // console.log(data);
-            if (data.insertedId) {
-              Swal.fire({
-                title: "Success!",
-                text: "Your booking has been confirmed.",
-                icon: "success",
-              });
-              const remaining = book.filter((room) => room._id !== _id);
-              setBook(remaining);
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    });
+    fetch("http://localhost:5000/booking", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(roomDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast("Data added");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  useEffect(() => {
-    Aos.init();
-  }, []);
+  // useEffect(() => {
+  //   Aos.init();
+  // }, []);
 
   return (
     <form
       onSubmit={handleRoomDetails}
-      className="max-w-7xl mx-auto md:flex gap-10 mb-6"
+      className="max-w-7xl mx-auto md:flex mt-24 gap-10 mb-6"
       data-aos="fade-up"
       data-aos-anchor-placement="center-bottom"
     >
@@ -141,12 +123,23 @@ const RoomDetailsPage = () => {
           </div>
         </div>
         <div className="form-control mt-6 max-w-36">
-          <input
-            className="btn btn-primary btn-block"
-            type="submit"
-            value="Book Now"
-            disabled={isButtonClicked}
-          />
+          {user?.email ? (
+            <input
+              className="btn btn-primary btn-block"
+              type="submit"
+              value="Book Now"
+              disabled={isButtonClicked}
+            />
+          ) : (
+            <Link to={`/login`}>
+              <input
+                className="btn btn-primary btn-block"
+                type="submit"
+                value="Book Now"
+                disabled={isButtonClicked}
+              />
+            </Link>
+          )}
         </div>
       </div>
     </form>

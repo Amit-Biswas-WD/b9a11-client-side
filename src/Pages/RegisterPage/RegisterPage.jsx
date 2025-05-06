@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Social from "../Social/Social";
 import { AuthContext } from "../../Conponents/Context/AuthContextProvider";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const { createUser } = useContext(AuthContext);
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleRegisterPage = (event) => {
@@ -22,7 +24,8 @@ const RegisterPage = () => {
       .then(() => {
         // console.log(result.user);
         event.target.reset();
-        navigate("/");
+        navigate(location?.state ? location?.state : "/");
+        toast("Register Successfully!");
       })
       .catch((error) => console.log(error));
   };
@@ -99,7 +102,7 @@ const RegisterPage = () => {
         <Social></Social>
         <p className="text-center">
           Already have account? please
-          <Link to="/loginpage">
+          <Link to="/login">
             <button className="btn btn-link">Login</button>
           </Link>
         </p>

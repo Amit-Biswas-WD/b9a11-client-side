@@ -1,4 +1,3 @@
-// import { FaWifi } from "react-icons/fa";
 import { BsCupHot } from "react-icons/bs";
 import { FaSquareParking } from "react-icons/fa6";
 import { PiSwimmingPool } from "react-icons/pi";
@@ -6,14 +5,9 @@ import { FaKey } from "react-icons/fa";
 import { SiGotomeeting } from "react-icons/si";
 import { MdOutlineLocalAtm } from "react-icons/md";
 import { MdBusinessCenter } from "react-icons/md";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 
 const Amenities = () => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
+
   return (
     <div
       className="max-w-3xl mx-auto font-serif"

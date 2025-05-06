@@ -1,12 +1,6 @@
-import Aos from "aos";
 import { Map, Marker } from "pigeon-maps";
-import { useEffect } from "react";
-import "aos/dist/aos.css";
 
 const Maps = () => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
   return (
     <div
       className="max-w-7xl mx-auto"

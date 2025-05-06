@@ -1,23 +1,19 @@
 import { useEffect, useState } from "react";
 import Room from "./Room";
-import Aos from "aos";
-import "aos/dist/aos.css";
-// import { useLoaderData } from "react-router-dom";
 
 const RoomPage = () => {
   const [roomPage, setRoomPage] = useState([]);
   const [sortedRooms, setSortedRooms] = useState([]);
-  // const loaded = useLoaderData([]);
 
   useEffect(() => {
-    Aos.init();
-    fetch("https://assignment-11-server-side-steel-pi.vercel.app/services")
+    fetch("http://localhost:5000/services")
       .then((res) => res.json())
       .then((data) => {
         setRoomPage(data);
-        setSortedRooms(data); // Initially set sortedRooms to the fetched data
+        setSortedRooms(data);
       });
   }, []);
+  console.log(roomPage);
 
   const sortHighToLow = () => {
     const sorted = [...roomPage].sort(
@@ -34,9 +30,9 @@ const RoomPage = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <details className="dropdown">
-        <summary className="m-1 btn">Sort by Price</summary>
+    <div className="max-w-7xl mx-auto mt-[90px] mb-2">
+      <details className="dropdown text-green-600 mb-2">
+        <summary className="btn text-green-600">Sort by Price</summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
           <li>
             <button onClick={sortHighToLow}>High Price</button>
