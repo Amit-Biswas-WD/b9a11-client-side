@@ -30,7 +30,7 @@ const RegisterPage = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="hero min-h-screen bg-base-200 py-8 max-w-7xl mx-auto z-0">
+    <div className="hero min-h-screen bg-base-200 py-8 max-w-7xl mx-auto z-0 mt-16">
       <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <form onSubmit={handleRegisterPage} className="card-body">
           <div className="form-control">
