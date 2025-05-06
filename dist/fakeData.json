@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Two King Bed Guest Rooms",
+    "room_description": "Gratify yourself with the privacy and ample space of our Two King Bed guest rooms, which feature two distinct bedrooms, each furnished with a luxurious king-size bed. You can also relish a complimentary cup of coffee while watching your favorite shows on one of our premium LED TVs. This suite ensures that everyone enjoys the room they require in a truly lavish manner.",
+    "price_per_night": 350,
+    "room_size": "500 sqft",
+    "availability": true,
+    "room_images": "https://i.ibb.co.com/FbGJwLLq/i1.jpg",
+    "special_offers": "10% off on bookings for stays longer than 3 nights"
+  },
+  {
+    "title": "Standard Room",
+    "room_description": "This room offers a simple and inviting atmosphere, featuring a Queen-sized bed and suitable for two guests. It’s well-suited for business travelers due to its chic work desk, and it’s also convenient for families, as it provides a mini fridge, microwave, and coffee maker, allowing you to save and reheat restaurant leftovers. This standard room presents an excellent choice for those seeking budget-friendly travel without compromising essential amenities.",
+    "price_per_night": 150,
+    "room_size": "300 sqft",
+    "availability": false,
+    "room_images": "https://i.ibb.co.com/DDTFGRHJ/i2.jpg",
+    "special_offers": "Complimentary breakfast included"
+  },
+  {
+    "title": "Family Suite",
+    "room_description": "Perfect for accommodating the whole family, this suite provides two double beds and a sofa bed, making it possible for up to six guests to experience the best of the New York / New Jersey area. Combining generous living areas with affordability, this roomy and convenient suite guarantees ample space for everyone to relax and unwind.",
+    "price_per_night": 700,
+    "room_size": "1000 sqft",
+    "availability": true,
+    "room_images": "https://i.ibb.co.com/CspTtVRD/i3.jpg",
+    "special_offers": "20% off on advance bookings"
+  },
+  {
+    "title": "Two Double Bed Ada Suite",
+    "room_description": "The Two Double Bed ADA Suite boasts a separate living space complete with a sofa bed, providing comfort for up to 4 occupants. This suite features an open living arrangement and includes amenities like a refrigerator, microwave, and coffee maker. You’ll find HDTVs in each room, and the bathroom is equipped with a marble vanity and premium amenities for your enjoyment.",
+    "price_per_night": 400,
+    "room_size": "600 sqft",
+    "availability": true,
+    "room_images": "https://i.ibb.co.com/sdR9HByS/i4.jpg",
+    "special_offers": "Kids stay for free"
+  },
+  {
+    "title": "King Bed Suite",
+    "room_description": "The King Bed Suite combines both practicality and distinct areas, featuring a roomy bedroom with a king-size bed and a separate living space furnished with a sofa bed. This suite is suitable for accommodating up to four individuals and comes with premium amenities to enhance the experience for the whole family.",
+    "price_per_night": 250,
+    "room_size": "400 sqft",
+    "availability": true,
+    "room_images": "https://i.ibb.co.com/chcQCcsC/i5.jpg",
+    "special_offers": "Complimentary airport transfers"
+  },
+  {
+    "title": "King Bed Suite (Ada)",
+    "room_description": "The King Bed Suite (ADA) provides a blend of practicality, separation, and accessibility, featuring a generously sized bedroom with a king-size bed and a separate living area complete with a sofa bed. This suite is designed to comfortably host up to four guests and is equipped with premium amenities to enhance the experience for the whole family.",
+    "price_per_night": 180,
+    "room_size": "350 sqft",
+    "availability": false,
+    "room_images": "https://i.ibb.co.com/fVmBWGJC/i6.jpg",
+    "special_offers": "Welcome kit for your furry friend"
+  },
+  {
+    "title": "Presidential Suite",
+    "room_description": "Our Presidential Suite, the most expansive option available, combines opulence and coziness to create a roomy sanctuary that provides a home-like atmosphere for up to four occupants. Featuring two separate bedrooms each furnished with king-sized beds and two full bathrooms, this suite guarantees that everyone can enjoy their own personal space for rejuvenation and relaxation after exploring all that New Jersey has to offer.",
+    "price_per_night": 800,
+    "room_size": "1200 sqft",
+    "availability": true,
+    "room_images": "https://i.ibb.co.com/PRWssbT/i7.jpg",
+    "special_offers": "Complimentary champagne on arrival"
+  },
+  {
+    "title": "King Executive Suite",
+    "room_description": "Designed with luxury in mind, this remarkably roomy and contemporary suite offers a delightful experience! The King Executive Suite features a king-sized bed along with a distinct living space and a dining/conference area, ensuring the utmost in comfort. The sofa bed allows for a tranquil stay accommodating up to four individuals. A Complimentary American Breakfast Buffet is also included.",
+    "price_per_night": 600,
+    "room_size": "800 sqft",
+    "availability": true,
+    "room_images": "https://i.ibb.co.com/5xKdj7pW/i8.jpg",
+    "special_offers": "Romantic dinner for two included"
+  },
+  {
+    "title": "Standard Room",
+    "room_description": "This room offers a simple and inviting atmosphere, featuring a Queen-sized bed and suitable for two guests. It’s well-suited for business travelers due to its chic work desk, and it’s also convenient for families, as it provides a mini fridge, microwave, and coffee maker, allowing you to save and reheat restaurant leftovers. This standard room presents an excellent choice for those seeking budget-friendly travel without compromising essential amenities.",
+    "price_per_night": 120,
+    "room_size": "200 sqft",
+    "availability": true,
+    "room_images": "https://i.ibb.co.com/B2QKQZTh/i9.jpg",
+    "special_offers": "Free Wi-Fi access"
+  },
+  {
+    "title": "Double Bed Executive Suite",
+    "room_description": "An elegantly designed and distinctive suite featuring two double beds and a sofa bed, accommodating up to six individuals. The Double Bed Executive Suite provides a roomy and peaceful haven complete with luxurious amenities.",
+    "price_per_night": 450,
+    "room_size": "700 sqft",
+    "availability": true,
+    "room_images": "https://i.ibb.co.com/CfCJQBZ/i10.jpg",
+    "special_offers": "Private beach access included"
+  }
+]
