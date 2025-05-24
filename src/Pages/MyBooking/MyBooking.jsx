@@ -7,7 +7,7 @@ const MyBooking = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
 
-  const url = `http://localhost:5000/booking?email=${user?.email}`;
+  const url = `https://b9a11-server-side-amit44777.vercel.app/booking?email=${user?.email}`;
 
   useEffect(() => {
     if (user?.email) {
@@ -28,7 +28,7 @@ const MyBooking = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/booking/${id}`, {
+        fetch(`https://b9a11-server-side-amit44777.vercel.app/booking/${id}`, {
           method: "DELETE",
           withCredentials: "include",
         })

@@ -6,7 +6,7 @@ const useService = () => {
     const [loading, setLoading] = useState(true);
   
     useEffect(() => {
-      fetch("http://localhost:5000/services")
+      fetch("https://b9a11-server-side-amit44777.vercel.app/services")
         .then((res) => res.json())
         .then((data) => {
           setMenu(data);

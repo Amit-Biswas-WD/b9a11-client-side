@@ -39,7 +39,7 @@ const RoomDetailsPage = () => {
     };
     console.log(roomDetails);
 
-    fetch("http://localhost:5000/booking", {
+    fetch("https://b9a11-server-side-amit44777.vercel.app/booking", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
