@@ -11,7 +11,6 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
 } from "firebase/auth";
-import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -48,42 +47,17 @@ const AuthContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      // const userEmail = currentUser?.email || user?.email;
-      // const loggedUser = { email: userEmail };
+  const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+    console.log("Current value of the user", currentUser);
+    setUser(currentUser);
+    setLoading(false); 
+  });
 
-      console.log("Current value of the user", currentUser);
-      setUser(currentUser);
+  return () => {
+    unSubscribe();
+  };
+}, []);
 
-      if (currentUser?.email) {
-        const userEmail = { email: currentUser?.email };
-        axios
-          .post("https://b9a11-server-side-amit44777.vercel.app/jwt", userEmail, {
-            withCredentials: true,
-          })
-          .then((res) => {
-            console.log("Login token", res.data);
-            setLoading(false);
-          });
-      } else {
-        axios
-          .post(
-            "https://b9a11-server-side-amit44777.vercel.app/logout",
-            {},
-            {
-              withCredentials: true,
-            }
-          )
-          .then((res) => {
-            console.log("Logout", res.data);
-            setLoading(false);
-          });
-      }
-    });
-    return () => {
-      unSubscribe();
-    };
-  }, [user]);
 
   const userInfo = {
     user,

@@ -6,7 +6,9 @@ const RoomPage = () => {
   const [sortedRooms, setSortedRooms] = useState([]);
 
   useEffect(() => {
-    fetch("https://b9a11-server-side-amit44777.vercel.app/services")
+    fetch("http://localhost:5000/services", {
+              withCredentials: true,
+            })
       .then((res) => res.json())
       .then((data) => {
         setRoomPage(data);

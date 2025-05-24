@@ -17,12 +17,13 @@ const Update = () => {
     const Value = { date, rating_4, price, size, img, offer };
     console.log(Value);
 
-    fetch(`https://b9a11-server-side-amit44777.vercel.app/booking/${_id}`, {
+    fetch(`http://localhost:5000/booking/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(Value),
+      withCredentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
